@@ -1,43 +1,44 @@
+let rock = 'Rock';
+let paper = 'Paper';
+let scissors = 'Scissors';
+rock > scissors;
+scissors > paper;
+paper > rock;
+
 function computerPlay() {
-    const computerSelect = ['Rock', 'Paper', 'Scissors'];
+    const computerSelect = ['ROCK', 'PAPER', 'SCISSORS'];
     return computerSelect[Math.floor(Math.random() * computerSelect.length)];
 }
-let playerSelect = prompt(" Choose rock, paper, or scissors");
+let playerSelect = prompt("Choose rock, paper, or scissors");
 let computerSelect = computerPlay();
 
-const playRound = (playerSelect, computerSelect) => {
-    //Player Chooses Rock//
-    if ((playerSelect === "ROCK") && (computerSelect === "Paper")) {
-        return "You Lose :(";
-    } else if ((playerSelect === "ROCK") && (computerSelect === "Rock")) {
-        return "It's a Draw!";
-    } else if ((playerSelect === "ROCK") && (computerSelect === "Scissors")) {
-        return "You Win!";
+function round(playerSelect, computerSelect) {
+
+    if(playerSelect.toUpperCase() > computerSelect) {
+        return "You Win!" && alert("You Win!");
     }
-    //player chooses scissors//
-    if ((playerSelect === "SCISSORS") && (computerSelect === "Rock")) {
-        return "You Lose :(";
-    } else if ((playerSelect === "SCISSORS") && (computerSelect === "Scissors")) {
-        return "It's a Draw!";
-    } else if ((playerSelect === "SCISSORS") && (computerSelect === "Paper")) {
-        return "You Win :D";
+    else if(playerSelect.toUpperCase() < computerSelect) {
+        return "You Lose" && alert("You Lose");
     }
-    //player chooses paper//
-    if ((playerSelect === "PAPER") && (computerSelect === "Scissors")) {
-        return "You Lose :(";
-    } else if ((playerSelect === "PAPER") && (computerSelect === "Paper")) {
-        return "It's a Draw!";
-    } else if ((playerSelect === "PAPER") && (computerSelect === "Rock")) {
-        return "You Win :D";
+    else if(playerSelect.toUpperCase() === computerSelect) {
+        return "Draw" && alert("It's a Draw");
     }
 }
 
 
 function game() {
-    for(let i = 0; i < 5; i++) {
-        playRound();
+    for(let i = 0; i < 5; i++); {
+        round(playerSelect, computerSelect);
     }
-}
     
-game()
+}
+
+game();
+
+
+
+
+
+   
+
 
