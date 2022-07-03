@@ -1,3 +1,7 @@
+// Rock paper scissors which plays in the console!
+
+
+// Global Variables
 let rock = 'Rock';
 let paper = 'Paper';
 let scissors = 'Scissors';
@@ -7,10 +11,14 @@ rock > scissors;
 scissors > paper;
 paper > rock;
 
+
+// Function which determines computerSelect: Decides randomly
 function computerPlay() {
     const computerSelect = ['ROCK', 'PAPER', 'SCISSORS'];
     return computerSelect[Math.floor(Math.random() * computerSelect.length)];
 }
+
+// Function which determines outcome of round
 
 function playRound(playerSelect, computerSelect) {
 
@@ -27,6 +35,8 @@ function playRound(playerSelect, computerSelect) {
     }
 }
 
+
+// Function which lets a 5 round game play and displays final score at the end
 
 function game() {
     for(let i = 0; i < 5; i++) {
