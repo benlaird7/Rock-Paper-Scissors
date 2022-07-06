@@ -32,3 +32,8 @@ button {
     font-size: 25px;
 
 }    
+
+.score_display {
+    z-index: 2;
+    color: white;
+}

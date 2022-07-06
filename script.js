@@ -40,8 +40,10 @@ function playRound(playerSelect, computerSelect) {
 
 function game() {
     for(let i = 0; i < 5; i++) {
-        let playerSelect = prompt('Choose rock, paper, or scissors!');
-        playerSelect = playerSelect.toUpperCase();
+        let playerSelect = document.getElementsByTagName('button');
+        playerSelect.addEventListener("click", () => {
+        console.log("Button clicked.");
+});
         let computerSelect = computerPlay();
         console.log(playRound(playerSelect, computerSelect));
     }
