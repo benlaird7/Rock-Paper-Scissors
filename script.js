@@ -12,6 +12,7 @@ scissors > paper;
 paper > rock;
 
 
+
 // Function which determines computerSelect: Decides randomly
 function computerPlay() {
     const computerSelect = ['ROCK', 'PAPER', 'SCISSORS'];
@@ -35,15 +36,25 @@ function playRound(playerSelect, computerSelect) {
     }
 }
 
+// On Click Functions for buttons //
+
+const rockButton = document.getElementById("Rock").addEventListener('click', function onClick() {
+    return rock;
+});
+
+const paperButton = document.getElementById("Paper").addEventListener('click', function onClick() {
+    return paper;
+});
+
+const scissorsButton = document.getElementById("Scissors").addEventListener('click', function onClick() {
+    return scissors;
+});
 
 // Function which lets a 5 round game play and displays final score at the end
 
 function game() {
     for(let i = 0; i < 5; i++) {
-        let playerSelect = document.getElementsByTagName('button');
-        playerSelect.addEventListener("click", () => {
-        console.log("Button clicked.");
-});
+        let playerSelect = rockButton || paperButton || scissorsButton;
         let computerSelect = computerPlay();
         console.log(playRound(playerSelect, computerSelect));
     }

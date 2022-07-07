@@ -34,6 +34,10 @@ button {
 }    
 
 .score_display {
-    z-index: 2;
     color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 40px;
+    font-size: 50px;
 }
