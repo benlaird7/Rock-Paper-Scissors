@@ -2,6 +2,9 @@
 
 
 // Global Variables
+const draw = "It's a Draw!";
+const win = "Congratulations you Won!!";
+const lose = "Oh No! You Lost :(";
 let rock = 'Rock';
 let paper = 'Paper';
 let scissors = 'Scissors';
@@ -10,31 +13,6 @@ let computerScore = 0;
 rock > scissors;
 scissors > paper;
 paper > rock;
-
-
-
-// Function which determines computerSelect: Decides randomly
-function computerPlay() {
-    const computerSelect = ['ROCK', 'PAPER', 'SCISSORS'];
-    return computerSelect[Math.floor(Math.random() * computerSelect.length)];
-}
-
-// Function which determines outcome of round
-
-function playRound(playerSelect, computerSelect) {
-
-    if(playerSelect > computerSelect) {
-        playerScore++;
-        return "You Win!";
-    }
-    else if(playerSelect < computerSelect) {
-        computerScore++;
-        return "You Lose";
-    }
-    else if(playerSelect === computerSelect) {
-        return "Draw";
-    }
-}
 
 // On Click Functions for buttons //
 
@@ -50,12 +28,55 @@ const scissorsButton = document.getElementById("Scissors").addEventListener('cli
     return scissors;
 });
 
+
+
+// Function which determines computerSelect: Decides randomly
+function computerPlay() {
+    const computerSelect = ['ROCK', 'PAPER', 'SCISSORS'];
+    return computerSelect[Math.floor(Math.random() * computerSelect.length)];
+}
+
+// Function which determines outcome of round //
+
+function playRound(playerSelect, computerSelect) {
+    // Player Selects Rock //
+    if(playerSelect === rockButton && computerSelect === "ROCK") {
+        return draw;
+    }
+    else if(playerSelect === rockButton && computerSelect === "PAPER") {
+        return lose;
+    }
+    else if(playerSelect === rockButton && computerSelect === "SCISSORS") {
+        return win;
+    }
+    // Player Selects Paper //
+    else if(playerSelect === paperButton && computerSelect === "ROCK") {
+        return win;
+    }
+    else if(playerSelect === paperButton && computerSelect === "PAPER") {
+        return draw;
+    }
+    else if(playerSelect === paperButton && computerSelect === "SCISSORS") {
+        return lose;
+    }
+    // Player Selects Scissors //
+    if(playerSelect === scissorsButton && computerSelect === "ROCK") {
+        return lose;
+    }
+    else if(playerSelect === scissorsButton && computerSelect === "PAPER") {
+        return win;
+    }
+    else if(playerSelect === scissorsButton && computerSelect === "SCISSORS") {
+        return draw;
+    }
+}
+
 // Function which lets a 5 round game play and displays final score at the end
 
 function game() {
     for(let i = 0; i < 5; i++) {
-        let playerSelect = rockButton || paperButton || scissorsButton;
-        let computerSelect = computerPlay();
+        playerSelect = prompt("click Button");
+        computerSelect = computerPlay();
         console.log(playRound(playerSelect, computerSelect));
     }
     if(playerScore > computerScore) {
@@ -71,6 +92,7 @@ function game() {
 }
 
 game();
+
 
 
 
